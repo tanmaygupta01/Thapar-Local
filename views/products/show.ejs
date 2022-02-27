@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') -%>
+
+    <section class="container">
+        <%- include('../partials/flash')  %>
+
+
+            <div class="card mb-3" style="max-width: 100%;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="<%= product.img %> " class="card-img-top" alt="Item Image" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=product.name %>
+                            </h5>
+                            <p class="card-text">
+                                <%=product.desc %>
+                            </p>
+                            <h5 class="card-title">$
+                                <%=product.price %>
+                            </h5>
+                            <a href="/products/form" class="btn btn-md btn-success">Buy </a>
+
+                            <% if(currentUser && currentUser.role === 'Buyer'){ %>
+                                <% } %>
+                                    <form class="d-inline-block" action="/user/<%=product._id%>/add" method="post">
+                                        <button type="submit" class="btn btn-secondary btn-md">Add To Cart</button>
+                                    </form>
+                                    <% if(currentUser && currentUser.role === 'Seller'){ %>
+                                        <a href="/products/<%=product._id%>/edit" class="btn btn-info btn-md">Edit</a>
+                                        <form class="d-inline-block" action="/products/<%=product._id%>?_method=DELETE" method="post">
+                                            <button class="btn btn-md btn-danger">Delete</button>
+                                        </form>
+                                        <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>

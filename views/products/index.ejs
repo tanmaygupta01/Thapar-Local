@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') -%>
+
+    <section class="container">
+        <% - include ('../partials/flash') %>
+            <section id="heading">
+                <h4 class="display-4"><i class="fab fa-shopify" style="margin-right: 20px;"></i>Shopping-Cart</h4>
+            </section>
+            <div class="row product">
+                <%    for(let product of products){%>
+                    <div class="col-lg-3 col-md-6 mb-3 ">
+                        <div class="card shadow mx-auto box-item" style="width: 18rem;">
+                            <img src="<%= product.img %> " class="card-img-top" alt="Item Image">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between align-items-center"><span><%= product.name %></span>
+
+                                </h5>
+                                <p class="card-text">
+                                    <%=product.desc.substring(0,100) %>
+                                </p>
+
+                                <h6 class="card-title"><span class="fw-bold fs-6 ">$<%= product.price %></span> </h6>
+                                <a href="/products/<%=product._id %>" class="btn btn-sm" id="button">View</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+    </section>

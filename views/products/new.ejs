@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') -%>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form action="/products" method="post" class="validated-form" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name  </label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Product Name" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" name="img" id="img" placeholder="Product Image URL" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                        <input type="text" name="price" class="form-control" placeholder="Enter Price" aria-label="Enter Price" aria-describedby="basic-addon1" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Description </label>
+                    <textarea name="desc" id="desc" rows="10" class="form-control" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-sm">Add</button>
+            </form>
+        </div>
+    </div>
